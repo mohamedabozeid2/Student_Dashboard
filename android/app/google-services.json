@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "772658595013",
+    "project_id": "student-dashboard-eb3d6",
+    "storage_bucket": "student-dashboard-eb3d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772658595013:android:4ee42c96dd97e84a27dcac",
+        "android_client_info": {
+          "package_name": "com.abozeid.student.application.final_student_dashboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772658595013-o427569hu4urn02kf8iiprg4fs1g719b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRy5FN5kDwd0mUtiuy39jW_xLQ7hZrRHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772658595013-o427569hu4urn02kf8iiprg4fs1g719b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "772658595013-7l4sog8f0kn9tlkj53d9ueoeg88k48hc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.abozeid.student.application.finalStudentDashboard"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
