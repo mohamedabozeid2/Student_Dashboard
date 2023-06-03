@@ -8,7 +8,7 @@ import 'core/hive/hive_keys.dart';
 import 'core/keys/data_types.dart';
 import 'core/services/services_locator.dart';
 import 'features/presentation/controller/BlocObserver/BlocObserver.dart';
-import 'features/presentation/screens/dashboard_screen/dashboard_screen.dart';
+import 'features/presentation/screens/layout/layout.dart';
 import 'features/presentation/screens/login_screen/login_screen.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,7 +36,7 @@ void main() async {
 
   if (loggedIn) {
     Constants.setCurrentStudent(await HiveHelper.getStudent());
-    startWidget = const DashboardScreen();
+    startWidget = const Layout();
   } else {
     startWidget = LoginScreen();
   }

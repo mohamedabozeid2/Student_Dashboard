@@ -5,6 +5,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_fonts.dart';
 import '../../../../core/utils/app_values.dart';
 import '../../../../core/utils/components.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/helper.dart';
 import '../../../../core/utils/strings.dart';
 import '../../../../core/widgets/adaptive_indicator.dart';
@@ -13,7 +14,7 @@ import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../controller/login_cubit/login_cubit.dart';
 import '../../controller/login_cubit/login_states.dart';
-import '../dashboard_screen/dashboard_screen.dart';
+import '../layout/layout.dart';
 import '../register_screen/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -29,7 +30,7 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSize.s25),
+          padding: EdgeInsets.symmetric(horizontal: Constants.mainPadding),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,12 +101,11 @@ class LoginScreen extends StatelessWidget {
                     Components.showSnackBar(
                       title: AppStrings.appName,
                       message: state.error.toString(),
-                      backgroundColor: AppColors.mainColor,
-                      textColor: Colors.white,
+
                     );
                   } else if (state is LoginSuccessState) {
                     Components.navigateAndFinish(
-                        context: context, widget: const DashboardScreen());
+                        context: context, widget: const Layout());
                   }
                 },
                 builder: (context, state) {

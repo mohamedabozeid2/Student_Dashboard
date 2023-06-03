@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/hive/hive_helper.dart';
 import '../../../../core/hive/hive_keys.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/components.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/strings.dart';
@@ -14,12 +13,12 @@ import '../../../domain/use_cases/register_use_cases/student_register.dart';
 import 'register_states.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> {
-  final StudentRegisterUseCase studentRegisterUseCase;
-  final AddStudentToFireStoreUseCase addStudentToFireStoreUseCase;
+  final StudentRegisterUseCase _studentRegisterUseCase;
+  final AddStudentToFireStoreUseCase _addStudentToFireStoreUseCase;
 
   RegisterCubit(
-    this.studentRegisterUseCase,
-    this.addStudentToFireStoreUseCase,
+    this._studentRegisterUseCase,
+    this._addStudentToFireStoreUseCase,
   ) : super(RegisterInitialState());
 
   static RegisterCubit get(context) => BlocProvider.of(context);
@@ -59,8 +58,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       Components.showSnackBar(
         title: AppStrings.appName,
         message: AppStrings.nameValidation,
-        backgroundColor: AppColors.mainColor,
-        textColor: Colors.white,
+
       );
       emit(RegisterValidationErrorState());
       return true;
@@ -68,8 +66,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       Components.showSnackBar(
         title: AppStrings.appName,
         message: AppStrings.emailValidation,
-        backgroundColor: AppColors.mainColor,
-        textColor: Colors.white,
+
       );
       emit(RegisterValidationErrorState());
       return true;
@@ -77,8 +74,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       Components.showSnackBar(
         title: AppStrings.appName,
         message: AppStrings.passwordValidation,
-        backgroundColor: AppColors.mainColor,
-        textColor: Colors.white,
+
       );
       emit(RegisterValidationErrorState());
       return true;
@@ -86,8 +82,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       Components.showSnackBar(
         title: AppStrings.appName,
         message: AppStrings.passwordMatch,
-        backgroundColor: AppColors.mainColor,
-        textColor: Colors.white,
+
       );
       emit(RegisterValidationErrorState());
       return true;
@@ -112,7 +107,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       return;
     }
 
-    studentRegisterUseCase
+    _studentRegisterUseCase
         .execute(
       email: email.trim(),
       name: name,
@@ -146,7 +141,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       phone: "",
       profilePicture: "",
     );
-    addStudentToFireStoreUseCase
+    _addStudentToFireStoreUseCase
         .execute(
       name: name,
       email: email.trim(),

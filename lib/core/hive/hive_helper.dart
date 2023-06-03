@@ -30,12 +30,12 @@ class HiveHelper {
     await studentData.put(HiveKeys.student.toString(), student);
   }
 
-  static Future<Student?> getStudent() async {
+  static Student? getStudent() {
     return studentData.get(HiveKeys.student.toString());
   }
 
   static Future<void> removeStudent() async {
-    studentData.close();
+    studentData.clear();
   }
 
   static Future<void> putInBox({

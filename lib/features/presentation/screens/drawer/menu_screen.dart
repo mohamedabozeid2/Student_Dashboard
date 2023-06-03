@@ -24,6 +24,28 @@ class MenuScreen extends StatelessWidget {
       child: Column(
         children: [
           const Spacer(),
+          // const AppLogo(fromDrawerScreen: true),
+          Container(
+            padding: EdgeInsets.all(AppSize.s15),
+            decoration: BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.circular(AppSize.s15)
+            ),
+            child: Text(
+              AppStrings.appName,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(
+                  color: Colors.white
+              ),
+
+            ),
+          ),
+          SizedBox(
+            height: AppSize.s30,
+          ),
           ...MenuItems.menuItemList.map((e) => buildMenuItem(e, context)),
           SizedBox(
             height: AppSize.s10,
@@ -35,10 +57,10 @@ class MenuScreen extends StatelessWidget {
               );
             },
             text: AppStrings.signOut,
-            backgroundColor: AppColors.mainColor,
-            textColor: Colors.white,
+            backgroundColor: Colors.white,
+            textColor: AppColors.mainColor,
             height: AppSize.s50,
-            fontSize: 20,
+            fontSize: AppFontSize.s20,
             borderRadius: 0,
           ),
           const Spacer(),
@@ -47,10 +69,8 @@ class MenuScreen extends StatelessWidget {
     );
   }
 
-  Widget buildMenuItem(
-    MenuItemDetails item,
-    BuildContext context,
-  ) {
+  Widget buildMenuItem(MenuItemDetails item,
+      BuildContext context,) {
     return ListTile(
       selectedTileColor: AppColors.mainColor,
       selected: currentItem == item,
@@ -62,7 +82,14 @@ class MenuScreen extends StatelessWidget {
       ),
       title: Text(
         item.title,
-        style: Theme.of(context).textTheme.bodyMedium,
+        overflow: TextOverflow.ellipsis,
+        style: Theme
+            .of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(
+          color: Colors.white,
+        ),
       ),
       onTap: () {
         onSelectedItem(item);

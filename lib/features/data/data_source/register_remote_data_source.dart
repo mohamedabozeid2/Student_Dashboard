@@ -53,7 +53,6 @@ class RegisterRemoteDataSource extends BaseRegisterRemoteDataSource {
     required StudentModel studentModel,
   }) async {
     try {
-
       return await FirebaseFirestore.instance
           .collection('students')
           .doc(userId)

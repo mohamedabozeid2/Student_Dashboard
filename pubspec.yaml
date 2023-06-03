@@ -25,11 +25,17 @@ dependencies:
   get_it: ^7.2.0
   flutter_screenutil: ^5.5.4
   device_preview: ^1.1.0
+  cached_network_image: ^3.2.1
   flutter_zoom_drawer: ^3.0.3
   firebase_core: ^2.13.1
   firebase_auth: ^4.6.2
   cloud_firestore: ^4.8.0
+  firebase_storage: ^11.2.2
   intl: ^0.18.0
+  syncfusion_flutter_calendar: ^20.1.51
+  lottie: ^1.4.2
+  image_picker: ^0.8.5
+
 
 
 dev_dependencies:
@@ -47,3 +53,4 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/anims/

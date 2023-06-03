@@ -7,37 +7,32 @@ import '../../../../../core/utils/components.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/strings.dart';
 import '../../../../../core/widgets/adaptive_indicator.dart';
-import '../../../controller/main_cubit/main_cubit.dart';
-import '../../../controller/main_cubit/main_states.dart';
+import '../../../controller/login_cubit/login_cubit.dart';
+import '../../../controller/login_cubit/login_states.dart';
 
 class DashboardAppbarWidget extends StatelessWidget {
   const DashboardAppbarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MainCubit, MainStates>(
+    return BlocConsumer<LoginCubit, LoginStates>(
       buildWhen: (previous, current) =>
-          current is MainLoadUserLoadingData ||
-          current is MainLoadUserErrorData ||
-          current is MainLoadUserSuccessData,
-      listener: (context, state) {
-        if (state is MainLoadUserErrorData) {
-          MainCubit.get(context).signOut(context: context);
-        }
-      },
+          current is LoginLoadingState ||
+          current is LoginSuccessState ||
+          current is LoginErrorState,
+      listener: (context, state) {},
       builder: (context, state) {
-        return state is MainLoadUserLoadingData
+        return state is LoginLoadingState
             ? Center(
                 child: AdaptiveIndicator(
                   os: Components.getOS(),
                   color: AppColors.mainColor,
                 ),
               )
-            : Row(
-                children: [
-                  Text(
-                      '${AppStrings.welcome} ${Constants.getCurrentStudent()!.name.capitalizeFirst}')
-                ],
+            : Text(
+                '${AppStrings.welcome} ${Constants.getCurrentStudent()!.name.capitalizeFirst}',
+                style: Theme.of(context).textTheme.bodyLarge,
+                overflow: TextOverflow.ellipsis,
               );
       },
     );

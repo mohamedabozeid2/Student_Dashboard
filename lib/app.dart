@@ -40,7 +40,15 @@ class StudentApp extends StatelessWidget {
                     ),
                   ),
                   BlocProvider(
-                    create: (BuildContext context) => MainCubit(),
+                    create: (BuildContext context) => MainCubit(
+                      sl(),
+                      sl(),
+                      sl(),
+                      sl(),
+                      sl(),
+                      sl(),
+
+                    ),
                   ),
                   BlocProvider(
                       create: (BuildContext context) =>

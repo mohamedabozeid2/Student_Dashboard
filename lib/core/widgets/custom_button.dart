@@ -12,7 +12,8 @@ class CustomButton extends StatelessWidget {
   final Color textColor;
   final double padding;
 
-  const CustomButton({super.key,
+  const CustomButton({
+    super.key,
     this.padding = 0,
     required this.fun,
     required this.text,
@@ -24,6 +25,7 @@ class CustomButton extends StatelessWidget {
     this.isUpperCase = false,
     this.textColor = Colors.black,
   });
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -46,7 +48,6 @@ class CustomButton extends StatelessWidget {
             ),
           ),
         ),
-
       ),
     );
   }

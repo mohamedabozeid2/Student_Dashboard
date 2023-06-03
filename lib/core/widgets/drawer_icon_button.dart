@@ -10,13 +10,13 @@ class DrawerIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("TEST");
-
-        Constants.drawerController.open;
-        // Constants.drawerController.toggle?.call();
-
+        Constants.drawerController.toggle?.call();
       },
-      child: const Icon(AppIcons.drawerButton),
+      child: Container(
+        padding: EdgeInsets.only(top: Constants.mainPadding, bottom: Constants.mainPadding, right: Constants.mainPadding),
+        decoration: const BoxDecoration(color: Colors.transparent),
+        child: const Icon(AppIcons.drawerButton),
+      ),
     );
   }
 }

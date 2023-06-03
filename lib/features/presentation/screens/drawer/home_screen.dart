@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainScreenTapClose: true,
         menuScreenOverlayColor: Colors.black,
         openCurve: Curves.fastOutSlowIn,
-        menuBackgroundColor: AppColors.mainColor,
+        menuBackgroundColor: AppColors.secondaryColor,
         menuScreenWidth: Helper.getMaxWidth() * 0.5,
         slideWidth: Helper.getMaxWidth() * 0.6,
         menuScreen: Builder(
@@ -61,12 +61,12 @@ class _HomeScreenState extends State<HomeScreen> {
     if (currentItem == MenuItems.dashboard) {
       return const DashboardScreen();
     } else if (currentItem == MenuItems.announcement) {
-      return AnnouncementScreen();
+      return const AnnouncementScreen();
     } else if (currentItem == MenuItems.courses) {
       return const CoursesScreen();
     } else if (currentItem == MenuItems.profile) {
-      return const ProfileScreen();
-    }else {
+      return ProfileScreen();
+    } else {
       return const ScheduleScreen();
     }
   }

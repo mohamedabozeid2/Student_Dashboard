@@ -5,6 +5,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_fonts.dart';
 import '../../../../core/utils/app_values.dart';
 import '../../../../core/utils/components.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/helper.dart';
 import '../../../../core/utils/strings.dart';
 import '../../../../core/widgets/adaptive_indicator.dart';
@@ -12,7 +13,7 @@ import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../controller/register_cubit/register_cubit.dart';
 import '../../controller/register_cubit/register_states.dart';
-import '../dashboard_screen/dashboard_screen.dart';
+import '../layout/layout.dart';
 import '../login_screen/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -31,7 +32,7 @@ class RegisterScreen extends StatelessWidget {
       appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: AppSize.s20, vertical: AppSize.s70),
+            horizontal: Constants.mainPadding, vertical: AppSize.s70),
         child: Center(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
@@ -152,12 +153,10 @@ class RegisterScreen extends StatelessWidget {
                       Components.showSnackBar(
                         title: AppStrings.appName,
                         message: state.error,
-                        backgroundColor: AppColors.mainColor,
-                        textColor: Colors.white,
                       );
                     } else if (state is RegisterSuccessState) {
                       Components.navigateAndFinish(
-                          context: context, widget: const DashboardScreen());
+                          context: context, widget: const Layout());
                     }
                   },
                   builder: (context, state) {
